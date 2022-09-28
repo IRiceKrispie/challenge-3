@@ -26,7 +26,7 @@ function generatePassword(){
     alert("You entered " + numOfCharacters + "." + "\nToo many characters. Click Generate Password again.");
     return "Click Generate Password again";
   }
-  alert("You entered " + numOfCharacters); //confirms length
+  message = message.concat("Length: " + numOfCharacters) //confirms length
 
   //check what kind of characters the user wants. Displays a message at the end confirming selections.
   if(confirm("Do you want lowercase characters? Click cancel if you don't") == true){
@@ -46,7 +46,7 @@ function generatePassword(){
     message = message.concat("\nYou want numbers.");
   }
 
-  alert(message);
+  alert(message); //display a message with confirmation of length and character selection
 
 
 
