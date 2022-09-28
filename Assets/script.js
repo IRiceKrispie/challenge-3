@@ -48,24 +48,26 @@ function generatePassword(){
 
   alert(message); //display a message with confirmation of length and character selection
 
- //for loop to generate our password
+ //for loop to generate our password. Based on how long the user wants the password
  for (var i = 0; i < numOfCharacters; i++){
-    var typeOfCharacter = Math.floor(Math.random() * 4); //num bewteen 0 and 3
+    var typeOfCharacter = Math.floor(Math.random() * 4); //num bewteen 0 and 3 to randomize what type of character is added
+    //if statement to check to see if at least on type of character was chosen. If not displays a message.
     if ((ifLowerCase == false) && (ifSpecialCharacters == false) && (ifCapAlphabet == false) && (ifNumbers == false)){
       alert("You must have at least one type of character. Click Generate Password again.");
-      break;
+      return "Click Generate Password again";
     }
-    console.log(typeOfCharacter);
+    //switch statment takes our random number we created to randomly add a type of character. 0 is lower case letters. 1 is special characters. 2 is capital letters. 3 are numbers.
     switch (typeOfCharacter){
       case 0:
-        if (ifLowerCase == true){
-          var alphabetIndex = Math.floor(Math.random() * alphabet.length);
-          var getText = alphabet[alphabetIndex];
-          passwordBuilder = passwordBuilder.concat(getText);
-        }else if (ifLowerCase == false){
+        if (ifLowerCase == true){ //checks to see if the user selected this type of character
+          var alphabetIndex = Math.floor(Math.random() * alphabet.length); //gets a random character from the alphabet array
+          var getText = alphabet[alphabetIndex]; //stores the random character in a variable
+          passwordBuilder = passwordBuilder.concat(getText);//adds the character to our passwork
+        }else if (ifLowerCase == false){ //if the user did not want this type of character nothing is added but we subtract 1 from our loop counter so we only count up when we add a character
           i--;
         }
-          break;
+          break; //breaks out of the switch and to the next iteration of our loop
+      //the rest of the cases follow the same logic
       case 1:
         if (ifSpecialCharacters == true){
           var specialIndex = Math.floor(Math.random() * specialCharcters.length);
@@ -97,7 +99,7 @@ function generatePassword(){
        
     }
     }
-
+    return passwordBuilder; //return our password after our loop is finished
 }
 
 
