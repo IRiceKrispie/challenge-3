@@ -48,8 +48,55 @@ function generatePassword(){
 
   alert(message); //display a message with confirmation of length and character selection
 
-
-
+ //for loop to generate our password
+ for (var i = 0; i < numOfCharacters; i++){
+    var typeOfCharacter = Math.floor(Math.random() * 4); //num bewteen 0 and 3
+    if ((ifLowerCase == false) && (ifSpecialCharacters == false) && (ifCapAlphabet == false) && (ifNumbers == false)){
+      alert("You must have at least one type of character. Click Generate Password again.");
+      break;
+    }
+    console.log(typeOfCharacter);
+    switch (typeOfCharacter){
+      case 0:
+        if (ifLowerCase == true){
+          var alphabetIndex = Math.floor(Math.random() * alphabet.length);
+          var getText = alphabet[alphabetIndex];
+          passwordBuilder = passwordBuilder.concat(getText);
+        }else if (ifLowerCase == false){
+          i--;
+        }
+          break;
+      case 1:
+        if (ifSpecialCharacters == true){
+          var specialIndex = Math.floor(Math.random() * specialCharcters.length);
+          var getText = specialCharcters[specialIndex];
+          passwordBuilder = passwordBuilder.concat(getText);
+        }else if (ifSpecialCharacters == false){
+          i--;
+        }
+        break;
+      case 2:
+        if (ifCapAlphabet == true){
+          var capIndex = Math.floor(Math.random() * capAlphabet.length);
+          var getText = capAlphabet[capIndex];
+          passwordBuilder = passwordBuilder.concat(getText);
+        }else if (ifCapAlphabet == false){
+          i--;
+        }
+        break;
+      case 3:
+        if (ifNumbers == true){
+          var numIndex = Math.floor(Math.random() * numbers.length);
+          var getText = numbers[numIndex];
+          passwordBuilder = passwordBuilder.concat(getText);
+        } else if (ifNumbers == false){
+          i--;
+        }
+        break;
+      
+       
+    }
+    }
 
 }
 
