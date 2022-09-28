@@ -3,6 +3,7 @@ var generateBtn = document.querySelector("#generate"); //locate our button using
 //this is our main function that will generate our password 
 function generatePassword(){
   //initiate our variables and our arrays with our special characters
+  var message = "";
   var passwordBuilder = "";
   var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var specialCharcters = ["!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
@@ -25,8 +26,35 @@ function generatePassword(){
     alert("You entered " + numOfCharacters + "." + "\nToo many characters. Click Generate Password again.");
     return "Click Generate Password again";
   }
-  alert("You entered " + numOfCharacters);
+  alert("You entered " + numOfCharacters); //confirms length
+
+  //check what kind of characters the user wants. Displays a message at the end confirming selections.
+  if(confirm("Do you want lowercase characters? Click cancel if you don't") == true){
+    ifLowerCase = true;
+    message = message.concat("\nYou want lower case letters.");
+  }
+  if (confirm("Do you want special characters? Click cancel if you don't.") == true){
+    ifSpecialCharacters = true;
+    message = message.concat("\nYou want special characters.");
+  }
+  if (confirm("Do you want capital letters? Click cancel if you don't.") == true){
+    ifCapAlphabet = true;
+    message = message.concat("\nYou want capital letters.");
+  }
+  if (confirm("Do you want numbers? Click cancel if you don't.") == true){
+    ifNumbers = true;
+    message = message.concat("\nYou want numbers.");
+  }
+
+  alert(message);
+
+
+
+
 }
+
+
+
 
 //this function gets our generated password and uses it as text
 function writePassword(){
