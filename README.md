@@ -10,6 +10,10 @@
 * If the user enters a number less than 8 or more than 128 they are prompted to try again
 * If the user does not select at least one type of character they are prompted to try again
 
+## Links
+* Github: https://github.com/IRiceKrispie/challenge-3
+* Pages: https://iricekrispie.github.io/challenge-3/
+
 ## Screen Shots
 Initial Screen
 ![Initial Scree](./Assets/Images/screenShot1.png)
