@@ -14,6 +14,18 @@ function generatePassword(){
   var ifSpecialCharacters = false;
   var ifCapAlphabet = false;
   var ifNumbers = false
+
+  //display a prompt so the user can enter how long they want their password. If the password is less than 8 characters or more than 128 we prompt the user to try again.
+  var numOfCharacters = prompt("Enter a number between 8 and 128"); //prompt gets user input
+  if (numOfCharacters < 8){
+    alert("You entered " + numOfCharacters + "." + "\nToo few characters. Click Generate Password again.");
+    return "Click Generate Password again";
+  }
+  if (numOfCharacters > 128){
+    alert("You entered " + numOfCharacters + "." + "\nToo many characters. Click Generate Password again.");
+    return "Click Generate Password again";
+  }
+  alert("You entered " + numOfCharacters);
 }
 
 //this function gets our generated password and uses it as text
